@@ -1,0 +1,1 @@
+cd /mnt/h/forssd2/cmpt433/public
