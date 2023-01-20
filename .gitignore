@@ -42,3 +42,4 @@ CMakeLists.txt
 a1/as1-helloWorld.tar.gz
 a1/as1-bootTrace.txt
 a1/as1-hostViaSSH.txt
+/notpublic/
