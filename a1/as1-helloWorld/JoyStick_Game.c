@@ -219,8 +219,6 @@ void* GameLED( void * temp){
     int random_time = 500+ rand() % 3000;
     random_direction = 1+rand() % 2;
 
-
-
     sleepForMs(random_time);
 
     pthread_t inactive;
@@ -299,10 +297,17 @@ int main(){
     runCommand("config-pin p8.16 gpio");
     runCommand("config-pin p8.18 gpio");
 
+    runCommand("echo in > /sys/class/gpio/gpio26/direction");
+    runCommand("echo in > /sys/class/gpio/gpio46/direction");
+    runCommand("echo in > /sys/class/gpio/gpio65/direction");
+    runCommand("echo in > /sys/class/gpio/gpio47/direction");
+
     LEDLightSetting(led0_trigger,"none");
     LEDLightSetting(led1_trigger,"none");
     LEDLightSetting(led2_trigger,"none");
     LEDLightSetting(led3_trigger,"none");
+
+
 
     start();
     return 0;
