@@ -8,7 +8,7 @@
 #include <time.h>
 #include <string.h>
 
-#define A2D_FILE_VOLTAGE0 "/sys/bus/iio/devices/iio:device0/in_voltage3_raw"
+#define A2D_FILE_VOLTAGE0 "/sys/bus/iio/devices/iio:device0/in_voltage0_raw"
 #define A2D_VOLTAGE_REF_V 1.8
 #define A2D_MAX_READING 4095
 int getVoltage0Reading()
@@ -48,7 +48,7 @@ int main()
         int reading = getVoltage0Reading();
         double voltage = ((double)reading / A2D_MAX_READING) * A2D_VOLTAGE_REF_V;
         printf("Value %5d ==> %5.2fV\n", reading, voltage);
-        sleepForMs(100);
+        sleepForMs(1000);
     }
     return 0;
 }

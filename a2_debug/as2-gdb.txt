@@ -1,0 +1,170 @@
+1debian@debian:~/cmpt433/public/myApps$ gdb-multiarch noworky 
+GNU gdb (Debian 10.1-1.7) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from noworky...
+(gdb) remote target 192.168.7.2:2001
+Undefined remote command: "target 192.168.7.2:2001".  Try "help remote".
+(gdb) target remote 192.168.7.2:2001
+Remote debugging using 192.168.7.2:2001
+Reading /lib/ld-linux-armhf.so.3 from remote target...
+warning: File transfers from remote targets can be slow. Use "set sysroot" to access files locally instead.
+Reading /lib/ld-linux-armhf.so.3 from remote target...
+Reading symbols from target:/lib/ld-linux-armhf.so.3...
+Reading /lib/17f0bca2ae53f327681aa4c81f6d849c5d5fe2.debug from remote target...
+Reading /lib/.debug/17f0bca2ae53f327681aa4c81f6d849c5d5fe2.debug from remote target...
+Reading /usr/lib/debug//lib/17f0bca2ae53f327681aa4c81f6d849c5d5fe2.debug from remote target...
+Reading /usr/lib/debug/lib//17f0bca2ae53f327681aa4c81f6d849c5d5fe2.debug from remote target...
+Reading target:/usr/lib/debug/lib//17f0bca2ae53f327681aa4c81f6d849c5d5fe2.debug from remote target...
+(No debugging symbols found in target:/lib/ld-linux-armhf.so.3)
+0xb6fd5a80 in ?? () from target:/lib/ld-linux-armhf.so.3
+(gdb) list
+37	{
+38	    unsigned int i;
+39	    for (i=0; i < size; i++) {
+40	        printf("%3d: %05.1f --> %05.1f\n", i, source[i], target[i]);
+41	    }
+42	}
+43	
+44	/*
+45	 * Create two arrays; populate them; swap them; display them.
+46	 */
+(gdb) b 72
+Breakpoint 1 at 0x4006e8: file noworky.c, line 72.
+(gdb) list
+47	int main()
+48	{
+49	    unsigned int i;
+50	    double *source, *target;
+51	    printf("noworky: by Brian Fraser\n");
+52	
+53	    // Allocate the arrays:
+54	    source = malloc(sizeof(*source) * NUM_ELEMENTS);
+55	    target = malloc(sizeof(*target) * NUM_ELEMENTS);
+56	
+(gdb) list
+57	    if (!source || !target) {
+58	        printf("ERROR: Allocation failed.\n");
+59	    }
+60	
+61	    // Initialize the arrays
+62	    for (i=0; i < NUM_ELEMENTS; i++) {
+63	        source[i] = i * 2.0;
+64	        target[i] = i * 10.0;
+65	    }
+66	
+(gdb) llist
+Undefined command: "llist".  Try "help".
+(gdb) list
+67	    // Display them
+68	    printf("Initial values: \n");
+69	    displayArrays(source, target, NUM_ELEMENTS);
+70	
+71	    // Swap their contents
+72	    tradeArrays(source, target, NUM_ELEMENTS);
+73	
+74	    // Display them
+75	    printf("Final values: \n");
+76	    displayArrays(source, target, NUM_ELEMENTS);
+(gdb) b 28
+Breakpoint 2 at 0x4005d2: file noworky.c, line 28.
+(gdb) next
+Cannot find bounds of current function
+(gdb) cont
+Continuing.
+Reading /lib/arm-linux-gnueabihf/libc.so.6 from remote target...
+Reading /lib/arm-linux-gnueabihf/7e3cad4070da5965d7c8ba10334e9058d0eb60.debug from remote target...
+Reading /lib/arm-linux-gnueabihf/.debug/7e3cad4070da5965d7c8ba10334e9058d0eb60.debug from remote target...
+Reading /usr/lib/debug//lib/arm-linux-gnueabihf/7e3cad4070da5965d7c8ba10334e9058d0eb60.debug from remote target...
+Reading /usr/lib/debug/lib/arm-linux-gnueabihf//7e3cad4070da5965d7c8ba10334e9058d0eb60.debug from remote target...
+Reading target:/usr/lib/debug/lib/arm-linux-gnueabihf//7e3cad4070da5965d7c8ba10334e9058d0eb60.debug from remote target...
+
+Breakpoint 1, main () at noworky.c:72
+72	    tradeArrays(source, target, NUM_ELEMENTS);
+(gdb) next
+
+Breakpoint 2, tradeArrays (array1=0x412598, array2=0x4125f0, size=10)
+    at noworky.c:28
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) next
+29	        swapContent(array1+i, array2+i);
+(gdb) print local
+No symbol "local" in current context.
+(gdb) local info
+Undefined command: "local".  Try "help".
+(gdb) info local
+i = 9
+(gdb) next
+
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) info local
+i = 4
+(gdb) next
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) 
+29	        swapContent(array1+i, array2+i);
+(gdb) info local
+i = 1
+(gdb) next
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) info local
+i = 1
+(gdb) next
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) info local
+i = 0
+(gdb) next
+29	        swapContent(array1+i, array2+i);
+(gdb) 
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) info local
+i = 4294967295
+(gdb) next
+29	        swapContent(array1+i, array2+i);
+(gdb) next
+28	    for (i = size-1; i >= 0; i--) {
+(gdb) info local
+i = 4294967294
+(gdb) Quit
+(gdb) 
+

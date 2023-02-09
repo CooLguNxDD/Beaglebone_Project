@@ -68,8 +68,9 @@ int main()
     writeI2cReg(i2cFileDesc, REG_DIRB, 0x00);
 // Drive an hour-glass looking character on a Zen Cape Green
 // (Like an X with a bar on top & bottom); Zen Red shows very different character
-    writeI2cReg(i2cFileDesc, REG_OUTA, 0x01);
-    writeI2cReg(i2cFileDesc, REG_OUTB, 0x04);
+
+    writeI2cReg(i2cFileDesc, REG_OUTA, 0x02);
+    writeI2cReg(i2cFileDesc, REG_OUTB, 0x06);
 // Read a register:
     unsigned char regVal = readI2cReg(i2cFileDesc, REG_OUTA);
     printf("Reg OUT-A = 0x%02x\n", regVal);
