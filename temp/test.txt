@@ -1,0 +1,8 @@
+Create a folder somewhere to place your firmware for the tftp server and download the OEM firmware (the file name is a very important part):
+mkdir -p /tmp/tftp
+wget https://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/ra69/miwifi_ra69_all_81ac71_1.1.10.bin -O /tmp/tftp/C0A81F02.img
+Set a static address on your PC to serve the firmware from:
+sudo ip address flush dev <adapter name>
+sudo ip address add 192.168.31.100/24 dev <adapter name>
+Run the server with the following command:
+sudo dnsmasq --no-daemon --listen-address=192.168.31.100 --bind-interfaces --dhcp-range=192.168.31.2,192.168.31.2 --enable-tftp --tftp-root=/tmp/tftp

@@ -1,0 +1,14 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: H:/forSSD2/cmpt433/Final_project/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake -f Makefile /nologo cmTC_fcf67\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_fcf67.dir\build.make /nologo -L                  CMakeFiles\cmTC_fcf67.dir\build
+Building C object CMakeFiles/cmTC_fcf67.dir/CMakeCCompilerABI.c.obj
+	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_fcf67.dir\CMakeCCompilerABI.c.obj.d --working-dir=H:\forSSD2\cmpt433\Final_project\cmake-build-debug\CMakeFiles\CMakeTmp --filter-prefix="" -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @C:\Users\andre\AppData\Local\Temp\nm8934.tmp
+NMAKE : fatal error U1077: '"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"' : 傳回碼 '0xc0000409'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"' : 傳回碼 '0x2'
+Stop.
+
+
+
+

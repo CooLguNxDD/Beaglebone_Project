@@ -23,6 +23,7 @@ void* StartUDP()
     bind (socketDescriptor, (struct sockaddr*) &sin, sizeof(sin));
 
     // Check for errors (-1)
+    return NULL;
 
     while (1) {
         // Get the data (blocking)
@@ -43,6 +44,9 @@ void* StartUDP()
         // - recvfrom given max size - 1, so there is always room for the null
         messageRx[bytesRx] = 0;
 //        printf("Message received (%d bytes): %s\n", bytesRx, messageRx);
+
+
+
         char *temp;
         char *cmd[MSG_MAX_LEN];
 
@@ -80,7 +84,6 @@ void* StartUDP()
                     messageTx, strlen(messageTx),
                     0,
                     (struct sockaddr *) &sinRemote, sin_len);
-
         }
         else if(strcmp(cmd[0], "count\n") == 0){
             sprintf(currentCmd, "count\n");

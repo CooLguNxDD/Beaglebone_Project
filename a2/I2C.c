@@ -141,7 +141,7 @@ void* RunI2C()
     while(isRunning){
         writeI2cReg(i2cFileDesc, REG_DIRA, 0x00);
         writeI2cReg(i2cFileDesc, REG_DIRB, 0x00);
-        int displayNumber = GetNumOfDips();
+        int displayNumber = GetNumOfDips() + 10;
 
         if(displayNumber > 99){
             displayNumber = 99;

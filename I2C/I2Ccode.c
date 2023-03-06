@@ -18,6 +18,7 @@
 #define I2CDRV_LINUX_BUS0 "/dev/i2c-0"
 #define I2CDRV_LINUX_BUS1 "/dev/i2c-1"
 #define I2CDRV_LINUX_BUS2 "/dev/i2c-2"
+
 static int initI2cBus(char* bus, int address)
 {
     int i2cFileDesc = open(bus, O_RDWR);

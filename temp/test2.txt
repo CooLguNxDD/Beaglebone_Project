@@ -1,0 +1,11 @@
+ca1588.nordvpn.com
+185.153.179.144
+Vancouver
+Canada
+x64VhRToeBFhVlaJGA+R1CE1K3MsT7KVELquTyeQ3j0=
+6
+
+10.0.2.15/24
+sHZPLBz0qelK3atN0HzvrAwFT6DAXsNNYwqHF4O2dWU=
+
+curl -s "https://api.nordvpn.com/v1/servers/recommendations?&filters\[servers_technologies\]\[identifier\]=wireguard_udp&limit=1"|jq -r '.[]|.hostname, .station, (.locations|.[]|.country|.city.name), (.locations|.[]|.country|.name), (.technologies|.[].metadata|.[].value), .load'
