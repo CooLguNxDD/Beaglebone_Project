@@ -1,8 +1,8 @@
 
 #include "JoyStickController.h"
-#include "Utility.h"
-#include "BeatController.h"
-#include "audioMixer_template.h"
+#include "../Final_project/cmpt433-final-project/src/Utility.h"
+#include "../Final_project/cmpt433-final-project/src/audioMixer/BeatController.h"
+#include "../Final_project/cmpt433-final-project/src/audioMixer/audioMixer_template.h"
 
 //path to GPIO
 char j_up[] = "/sys/class/gpio/gpio26/value";

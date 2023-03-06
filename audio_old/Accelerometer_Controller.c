@@ -2,8 +2,8 @@
 
 #include <stdbool.h>
 #include "Accelerometer_Controller.h"
-#include "audioMixer_template.h"
-#include "BeatController.h"
+#include "../Final_project/cmpt433-final-project/src/audioMixer/audioMixer_template.h"
+#include "../Final_project/cmpt433-final-project/src/audioMixer/BeatController.h"
 #include "periodTimer.h"
 static pthread_t accelerometer;
 

@@ -8,6 +8,7 @@ SOURCES= Utility.c periodTimer.c audioMixer_template.c BeatController.c Accelero
 
 
 PUBDIR = $(HOME)/cmpt433/public/myApps
+LIBDIR = $(HOME)/cmpt433/public
 OUTDIR = $(PUBDIR)
 CROSS_TOOL = arm-linux-gnueabihf-
 CC_CPP = $(CROSS_TOOL)g++
@@ -29,10 +30,13 @@ LFLAGS = -L$(HOME)/cmpt433/public/asound_lib_BBB
 # -pg for supporting gprof profiling.
 #CFLAGS += -pg
 
-
-
 all: wav node
 	$(CC_C) $(CFLAGS) $(SOURCES) -o $(OUTDIR)/$(TARGET)  $(LFLAGS) -lpthread -lasound
+
+fftw3:
+	apt-get install fftw3
+	mkdir -p $(LIBDIR)/fftw3/
+	cp /usr/lib/arm-linux-gnueabihf/libfftw3.so.3.5.8 $(LIBDIR)/fftw3/
 
 # Copy wave files to the shared folder
 wav:

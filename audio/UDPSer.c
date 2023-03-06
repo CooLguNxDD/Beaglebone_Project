@@ -1,8 +1,8 @@
 #include "UDPSer.h"
-#include "../Final_project/cmpt433-final-project/src/Utility.h"
+#include "Utility.h"
 
-#include "../Final_project/cmpt433-final-project/src/audioMixer/BeatController.h"
-#include "../Final_project/cmpt433-final-project/src/audioMixer/audioMixer_template.h"
+#include "BeatController.h"
+#include "audioMixer_template.h"
 
 // previous command
 char previousCmd[MSG_MAX_LEN];

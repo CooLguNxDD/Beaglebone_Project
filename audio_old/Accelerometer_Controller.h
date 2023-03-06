@@ -5,7 +5,7 @@
 #define I2C_DEVICE_ADDRESS 0x1C
 
 #include <pthread.h>
-#include "Utility.h"
+#include "../Final_project/cmpt433-final-project/src/Utility.h"
 
 
 #define CTRL_REG1 0x2A

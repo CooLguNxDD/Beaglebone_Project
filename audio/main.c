@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "../Final_project/cmpt433-final-project/src/Utility.h"
-#include "../Final_project/cmpt433-final-project/src/audioMixer/audioMixer_template.h"
-#include "../Final_project/cmpt433-final-project/src/audioMixer/BeatController.h"
+#include "Utility.h"
+#include "audioMixer_template.h"
+#include "BeatController.h"
 #include "JoyStickController.h"
 #include "Accelerometer_Controller.h"
 #include "periodTimer.h"
