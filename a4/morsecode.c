@@ -133,7 +133,6 @@ static void string_to_morse(char letter){
         if(morse_code & 0x8000){
             my_led_on();
             dot_counter+=1;
-//            printk(KERN_INFO "sleep 1  (step 1)\n");
             msleep(DOT_TIME);
         }
         // 0
@@ -150,7 +149,6 @@ static void string_to_morse(char letter){
             //reset counter
             dot_counter=0;
             if(morse_code){
-//                printk(KERN_INFO "sleep 1  (step 2)\n");
                 msleep(DOT_TIME);
             }
         }
@@ -211,11 +209,11 @@ static ssize_t my_write(struct file *file,
 
     // Trim whitespace from the front and end of the input
     while(morse_string[start] == ' '){
-        printk(KERN_INFO "morse: string start%c\n", morse_string[start]);
+//        printk(KERN_INFO "morse: string start%c\n", morse_string[start]);
         start++;
     }
     while (end >= start && (morse_string[end] == ' ' || morse_string[end] == '\n')){
-        printk(KERN_INFO "morse: string end %c\n", morse_string[end]);
+//        printk(KERN_INFO "morse: string end %c\n", morse_string[end]);
         end--;
     }
     //string to morse code
@@ -226,7 +224,6 @@ static ssize_t my_write(struct file *file,
         if(morse_string[i] == ' ' && (previous_letter >= 'A' && previous_letter <= 'Z')){
             my_led_off();
             if (!kfifo_put(&echo_fifo, ' ')) return -EFAULT;
-            printk(KERN_INFO "sleep 4  (step 3 space)\n");
             msleep(DOT_TIME * 4);
             previous_letter = morse_string[i];
             continue;
@@ -243,8 +240,6 @@ static ssize_t my_write(struct file *file,
         //next letter and ignore the last delay and space
         if(i != end){
             if (!kfifo_put(&echo_fifo, ' ')) return -EFAULT;
-            //previous is a letter
-            printk(KERN_INFO "sleep 3  (step 4 next letter)\n");
             msleep(DOT_TIME * 3);
         }
 
@@ -285,7 +280,7 @@ static struct miscdevice my_miscdevice = {
 static int __init my_init(void)
 {
 	int ret;
-	printk(KERN_INFO "----> morse driver init(): file /dev/%s.\n", MY_DEVICE_FILE);
+	printk(KERN_INFO "----> morse-code driver init(): file /dev/%s.\n", MY_DEVICE_FILE);
 
 	// Register as a misc driver:
 	ret = misc_register(&my_miscdevice);
@@ -301,7 +296,7 @@ static int __init my_init(void)
 
 static void __exit my_exit(void)
 {
-	printk(KERN_INFO "<---- morse driver exit().\n");
+	printk(KERN_INFO "<---- morse-code driver exit().\n");
 
 	// Unregister misc driver
 	misc_deregister(&my_miscdevice);
@@ -314,5 +309,5 @@ module_init(my_init);
 module_exit(my_exit);
 
 MODULE_AUTHOR("Andrew Liang");
-MODULE_DESCRIPTION("morse LED driver");
+MODULE_DESCRIPTION("morse-code LED driver");
 MODULE_LICENSE("GPL");
