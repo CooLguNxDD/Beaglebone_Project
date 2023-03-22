@@ -117,13 +117,12 @@ static void string_to_morse(char letter){
     // string to morse + led response
     unsigned short morse_code;
     int dot_counter;
-    char uppercase = letter;
 
     //not a letter
-    if(uppercase < 'A' || uppercase > 'Z') return;
+    if(letter < 'A' || letter > 'Z') return;
 
     // create a binary for morse-code from morse-code table
-    morse_code = morsecode_codes[uppercase - 65];
+    morse_code = morsecode_codes[letter - 65];
 
     // counter to determine it is a dot or dash
     dot_counter = 0;
@@ -221,8 +220,8 @@ static ssize_t my_write(struct file *file,
     }
     //string to morse code
     for(i = start; i < end+1; i++){
-        //if it is a space and
 
+        //if current letter is whitespace and previous is not
         printk(KERN_INFO "morse: current letter: %c\n", morse_string[i]);
         if(morse_string[i] == ' ' && (previous_letter >= 'A' && previous_letter <= 'Z')){
             my_led_off();
@@ -232,6 +231,7 @@ static ssize_t my_write(struct file *file,
             previous_letter = morse_string[i];
             continue;
         }
+        //if current and previous letter is whitespace
         else if(morse_string[i] == ' ' && previous_letter == ' '){
             previous_letter = morse_string[i];
             continue;
