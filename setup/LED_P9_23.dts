@@ -1,0 +1,63 @@
+/*
+* Configure P9_23 ("gpio1_17", Linux pin #47) to be an LED in Linux
+* Based on: https://github.com/nomel/beaglebone/blob/master/led-header/generated/led-P9.23-00A0.dts
+* Written by Brian Fraser; released under GPL and BSD.
+* Updates:
+* Nov 2017 for Kernel 4.4+: Change "gpio2" to "gpio1" for gpios entry.
+* Nov 2019 for Kernel 4.9+: Change to uEnv.txt from cape manager
+* Feb 2023 for Kernel 5.10+ (Bullseye): Free up the pins used by the universal cape
+*
+* Compile with:
+* dtc -O dtb -o LED_P9_23-00A0.dtbo -b 0 -@ LED_P9_23.dts
+* Copy the .dtbo to /lib/firmware
+* sudo cp LED_P9_23-00A0.dtbo /lib/firmware
+* Load in /boot/uEnv.txt
+* uboot_overlay_addr4=/lib/firmware/LED_P9_23-00A0.dtbo
+* Use like any Linux LEDs via /sys/class/leds/leds:P9.23/....
+*/
+/dts-v1/;
+/plugin/;
+/ {
+compatible = "ti,beaglebone", "ti,beaglebone-black";
+/* identification */
+part-number = "led-P9.23";
+/* version = "00A0"; */
+/* state the resources this cape uses */
+exclusive-use =
+"P9.23", /* pin header uses this */
+"gpio1_17"; /* hardware IP uses this */
+/* Free up the pins used by the cape from the pinmux helpers. */
+fragment@0 {
+target = <&ocp>;
+__overlay__ {
+P9_23_pinmux { status = "disabled"; }; /* P9_23: GPIO output for LED control */
+};
+};
+/* rxDisable_pullNone state */
+fragment_1 {
+target = <&am33xx_pinmux>;
+__overlay__ {
+gpio_P9_23_rxDisable_pullNone: pinmux_gpio_P9.23_rxDisable_pullNone {
+pinctrl-single,pins = <
+0x44 0xf
+>;
+};
+};
+};
+fragment_2 {
+	target = <&ocp>;
+	__overlay__ {
+		led_P9.23_helper {
+			compatible = "gpio-leds";
+			pinctrl-names = "default";
+			pinctrl-0 = <&gpio_P9_23_rxDisable_pullNone>;
+			leds-P9.23 {
+				label = "leds:P9.23";
+				gpios = <&gpio1 17 1>; /* flag 1 means active low */
+				linux,default-trigger = "heartbeat";
+				default-state = "off";
+			};
+};
+};
+};
+};

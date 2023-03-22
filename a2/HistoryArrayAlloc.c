@@ -134,7 +134,7 @@ void CheckDips(int newSample){
     }else if(voltageSample < trigger_threshold && fabs(ComputeVoltage(dipsSample - newSample)) < HYSTERESIS_VOLTAGE) {
         trigger = true;
         trigger_threshold = THRESHOLD_VOLTAGE;
-    }
+    }*
     if(numOfDips >= 10){
         isIdle = true;
     }

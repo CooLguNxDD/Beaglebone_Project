@@ -142,6 +142,30 @@ cmpt433-final-project\currentTime.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Final_project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Final_project.dir\cmpt433-final-project\currentTime.c.s
 .PHONY : cmpt433-final-project\currentTime.c.s
 
+cmpt433-final-project\src\Utility.obj: cmpt433-final-project\src\Utility.c.obj
+.PHONY : cmpt433-final-project\src\Utility.obj
+
+# target to build an object file
+cmpt433-final-project\src\Utility.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Final_project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.obj
+.PHONY : cmpt433-final-project\src\Utility.c.obj
+
+cmpt433-final-project\src\Utility.i: cmpt433-final-project\src\Utility.c.i
+.PHONY : cmpt433-final-project\src\Utility.i
+
+# target to preprocess a source file
+cmpt433-final-project\src\Utility.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Final_project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.i
+.PHONY : cmpt433-final-project\src\Utility.c.i
+
+cmpt433-final-project\src\Utility.s: cmpt433-final-project\src\Utility.c.s
+.PHONY : cmpt433-final-project\src\Utility.s
+
+# target to generate assembly for a file
+cmpt433-final-project\src\Utility.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Final_project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.s
+.PHONY : cmpt433-final-project\src\Utility.c.s
+
 cmpt433-final-project\src\audioMixer\BeatController.obj: cmpt433-final-project\src\audioMixer\BeatController.c.obj
 .PHONY : cmpt433-final-project\src\audioMixer\BeatController.obj
 
@@ -322,6 +346,9 @@ help:
 	@echo ... cmpt433-final-project/currentTime.obj
 	@echo ... cmpt433-final-project/currentTime.i
 	@echo ... cmpt433-final-project/currentTime.s
+	@echo ... cmpt433-final-project/src/Utility.obj
+	@echo ... cmpt433-final-project/src/Utility.i
+	@echo ... cmpt433-final-project/src/Utility.s
 	@echo ... cmpt433-final-project/src/audioMixer/BeatController.obj
 	@echo ... cmpt433-final-project/src/audioMixer/BeatController.i
 	@echo ... cmpt433-final-project/src/audioMixer/BeatController.s

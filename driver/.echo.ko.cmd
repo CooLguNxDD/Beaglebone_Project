@@ -1,0 +1,1 @@
+cmd_/media/sf_cmpt433/driver/echo.ko := arm-linux-gnueabihf-ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /media/sf_cmpt433/driver/echo.ko /media/sf_cmpt433/driver/echo.o /media/sf_cmpt433/driver/echo.mod.o;  true

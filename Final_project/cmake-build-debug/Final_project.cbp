@@ -87,6 +87,12 @@
 		<Unit filename="H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/currentTime.c">
 			<Option target="Final_project"/>
 		</Unit>
+		<Unit filename="H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/Utility.c">
+			<Option target="Final_project"/>
+		</Unit>
+		<Unit filename="H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/Utility.h">
+			<Option target="Final_project"/>
+		</Unit>
 		<Unit filename="H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/audioMixer/BeatController.c">
 			<Option target="Final_project"/>
 		</Unit>

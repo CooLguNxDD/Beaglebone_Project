@@ -53,63 +53,62 @@ unsigned char readI2cReg(int i2cFileDesc, unsigned char regAddr)
 }
 
 void WriteNumberToI2C(int i2cFileDesc, int number){
-        if (number == 0){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0xA1);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x86);
-            return;
-        }
-        else if(number == 1){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0x80);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x02);
-            return;
-        }
-        else if(number == 2){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0x31);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x0E);
-            return;
-        }
-        else if(number == 3){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0xB0);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x0E);
-            return;
-        }
-        else if(number == 4){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0x90);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x8A);
-            return;
-        }
-        else if(number == 5){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0xB0);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x8C);
-            return;
-        }
-        else if(number == 6){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0xB1);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x8C);
-            return;
-        }
-        else if(number == 7){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0x80);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x06);
-            return;
-        }
+    if (number == 0){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0xA1);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x86);
+        return;
+    }
+    else if(number == 1){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0x80);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x02);
+        return;
+    }
+    else if(number == 2){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0x31);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x0E);
+        return;
+    }
+    else if(number == 3){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0xB0);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x0E);
+        return;
+    }
+    else if(number == 4){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0x90);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x8A);
+        return;
+    }
+    else if(number == 5){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0xB0);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x8C);
+        return;
+    }
+    else if(number == 6){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0xB1);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x8C);
+        return;
+    }
+    else if(number == 7){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0x80);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x06);
+        return;
+    }
 
-        else if(number == 8){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0xB1);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x8E);
-            return;
-        }
-        else if(number == 9){
-            writeI2cReg(i2cFileDesc, REG_OUTA, 0x90);
-            writeI2cReg(i2cFileDesc, REG_OUTB, 0x8E);
-            return;
-        }
+    else if(number == 8){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0xB1);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x8E);
+        return;
+    }
+    else if(number == 9){
+        writeI2cReg(i2cFileDesc, REG_OUTA, 0x90);
+        writeI2cReg(i2cFileDesc, REG_OUTB, 0x8E);
+        return;
+    }
 }
 
 
 void* setLED(){
     int i2cFileDesc = initI2cBus(I2CDRV_LINUX_BUS1, I2C_DEVICE_ADDRESS);
-
 
     int rightGPIO = open("/sys/class/gpio/gpio61/value",O_RDWR);
 

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/currentTime.c" "H:/forSSD2/cmpt433/Final_project/cmake-build-debug/CMakeFiles/Final_project.dir/cmpt433-final-project/currentTime.c.obj"
+  "H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/Utility.c" "H:/forSSD2/cmpt433/Final_project/cmake-build-debug/CMakeFiles/Final_project.dir/cmpt433-final-project/src/Utility.c.obj"
   "H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/audioMixer/BeatController.c" "H:/forSSD2/cmpt433/Final_project/cmake-build-debug/CMakeFiles/Final_project.dir/cmpt433-final-project/src/audioMixer/BeatController.c.obj"
   "H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/audioMixer/audioMixer_template.c" "H:/forSSD2/cmpt433/Final_project/cmake-build-debug/CMakeFiles/Final_project.dir/cmpt433-final-project/src/audioMixer/audioMixer_template.c.obj"
   "H:/forSSD2/cmpt433/Final_project/cmpt433-final-project/src/audioVisualizer.c" "H:/forSSD2/cmpt433/Final_project/cmake-build-debug/CMakeFiles/Final_project.dir/cmpt433-final-project/src/audioVisualizer.c.obj"

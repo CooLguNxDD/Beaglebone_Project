@@ -5,7 +5,6 @@
 //   $ as3-server server.js
 var PORT_NUMBER = 8080;
 
-
 var http = require('http');
 var fs   = require('fs');
 var path = require('path');

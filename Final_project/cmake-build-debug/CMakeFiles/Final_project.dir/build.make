@@ -207,6 +207,25 @@ CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\BeatController
  /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\BeatController.c.s /c H:\forSSD2\cmpt433\Final_project\cmpt433-final-project\src\audioMixer\BeatController.c
 <<
 
+CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.obj: CMakeFiles\Final_project.dir\flags.make
+CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.obj: ..\cmpt433-final-project\src\Utility.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\forSSD2\cmpt433\Final_project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Final_project.dir/cmpt433-final-project/src/Utility.c.obj"
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.obj /FdCMakeFiles\Final_project.dir\ /FS -c H:\forSSD2\cmpt433\Final_project\cmpt433-final-project\src\Utility.c
+<<
+
+CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Final_project.dir/cmpt433-final-project/src/Utility.c.i"
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe > CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.i @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E H:\forSSD2\cmpt433\Final_project\cmpt433-final-project\src\Utility.c
+<<
+
+CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Final_project.dir/cmpt433-final-project/src/Utility.c.s"
+	C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.s /c H:\forSSD2\cmpt433\Final_project\cmpt433-final-project\src\Utility.c
+<<
+
 # Object files for target Final_project
 Final_project_OBJECTS = \
 "CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioVisualizer.c.obj" \
@@ -216,7 +235,8 @@ Final_project_OBJECTS = \
 "CMakeFiles\Final_project.dir\cmpt433-final-project\src\udpComms.c.obj" \
 "CMakeFiles\Final_project.dir\cmpt433-final-project\currentTime.c.obj" \
 "CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\audioMixer_template.c.obj" \
-"CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\BeatController.c.obj"
+"CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\BeatController.c.obj" \
+"CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.obj"
 
 # External object files for target Final_project
 Final_project_EXTERNAL_OBJECTS =
@@ -229,9 +249,10 @@ Final_project.exe: CMakeFiles\Final_project.dir\cmpt433-final-project\src\udpCom
 Final_project.exe: CMakeFiles\Final_project.dir\cmpt433-final-project\currentTime.c.obj
 Final_project.exe: CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\audioMixer_template.c.obj
 Final_project.exe: CMakeFiles\Final_project.dir\cmpt433-final-project\src\audioMixer\BeatController.c.obj
+Final_project.exe: CMakeFiles\Final_project.dir\cmpt433-final-project\src\Utility.c.obj
 Final_project.exe: CMakeFiles\Final_project.dir\build.make
 Final_project.exe: CMakeFiles\Final_project.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=H:\forSSD2\cmpt433\Final_project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable Final_project.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=H:\forSSD2\cmpt433\Final_project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable Final_project.exe"
 	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Final_project.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MICROS~2\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\Final_project.dir\objects1.rsp @<<
  /out:Final_project.exe /implib:Final_project.lib /pdb:H:\forSSD2\cmpt433\Final_project\cmake-build-debug\Final_project.pdb /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

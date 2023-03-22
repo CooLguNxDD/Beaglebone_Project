@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Final_project.dir/cmpt433-final-project/currentTime.c.obj"
+  "CMakeFiles/Final_project.dir/cmpt433-final-project/src/Utility.c.obj"
   "CMakeFiles/Final_project.dir/cmpt433-final-project/src/audioMixer/BeatController.c.obj"
   "CMakeFiles/Final_project.dir/cmpt433-final-project/src/audioMixer/audioMixer_template.c.obj"
   "CMakeFiles/Final_project.dir/cmpt433-final-project/src/audioVisualizer.c.obj"

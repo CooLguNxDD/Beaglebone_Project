@@ -1,0 +1,1 @@
+cmd_/media/sf_cmpt433/driver/test/Module.symvers := sed 's/ko$$/o/' /media/sf_cmpt433/driver/test/modules.order | scripts/mod/modpost -m    -o /media/sf_cmpt433/driver/test/Module.symvers -e -i Module.symvers   -T -

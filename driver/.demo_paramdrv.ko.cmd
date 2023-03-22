@@ -1,0 +1,1 @@
+cmd_/media/sf_cmpt433/driver/demo_paramdrv.ko := arm-linux-gnueabihf-ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /media/sf_cmpt433/driver/demo_paramdrv.ko /media/sf_cmpt433/driver/demo_paramdrv.o /media/sf_cmpt433/driver/demo_paramdrv.mod.o;  true
