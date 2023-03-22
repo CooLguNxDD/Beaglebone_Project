@@ -240,14 +240,14 @@ static ssize_t my_write(struct file *file,
         //next letter and ignore the last delay and space
         if(i != end){
             if (!kfifo_put(&echo_fifo, ' ')) return -EFAULT;
-            msleep(DOT_TIME * 3);
+            if(morse_string[i] >= 'A' && morse_string[i] <= 'Z'){
+                msleep(DOT_TIME * 3);
+            }
         }
 
         previous_letter = morse_string[i];
     }
     // insert break line
-    if (!kfifo_put(&echo_fifo, '\\')) return -EFAULT;
-    if (!kfifo_put(&echo_fifo, 'n')) return -EFAULT;
     if (!kfifo_put(&echo_fifo, '\n')) return -EFAULT;
     my_led_off();
     printk(KERN_INFO "morse: encode finished %d\n", count);

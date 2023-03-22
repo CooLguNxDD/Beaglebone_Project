@@ -1,0 +1,114 @@
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ uname -r
+5.10.140-ti-r52
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ cd /mnt/remote/drivers
+debian@ala215-beagle:/mnt/remote/drivers$ modinfo morsecode.ko
+filename:       /mnt/remote/drivers/morsecode.ko
+license:        GPL
+description:    morse-code LED driver
+author:         Andrew Liang
+depends:
+name:           morsecode
+vermagic:       5.10.140 SMP preempt mod_unload modversions ARMv7 p2v8
+debian@ala215-beagle:/mnt/remote/drivers$ sudo rmmod ./morsecode.ko
+debian@ala215-beagle:/mnt/remote/drivers$ sudo insmod ./morsecode.ko
+debian@ala215-beagle:/mnt/remote/drivers$ lsmod
+Module                  Size  Used by
+morsecode              16384  0
+rpcsec_gss_krb5        28672  0
+pru_rproc              28672  0
+irq_pruss_intc         20480  0
+snd_soc_simple_card    24576  0
+snd_soc_simple_card_utils    24576  1 snd_soc_simple_card
+pm33xx                 20480  0
+pruss                  20480  1 pru_rproc
+ti_eqep                16384  0
+counter                20480  1 ti_eqep
+snd_soc_tlv320aic3x    53248  1
+snd_soc_davinci_mcasp    32768  2
+snd_soc_ti_udma        16384  1 snd_soc_davinci_mcasp
+snd_soc_ti_edma        16384  1 snd_soc_davinci_mcasp
+snd_soc_ti_sdma        16384  1 snd_soc_davinci_mcasp
+c_can_platform         16384  0
+c_can                  24576  1 c_can_platform
+snd_soc_core          172032  7 snd_soc_davinci_mcasp,snd_soc_simple_card_utils,snd_soc_ti_sdma,snd_soc_ti_edma,snd_soc_tlv320aic3x,snd_soc_ti_udma,snd_soc_simple_card
+can_dev                28672  1 c_can
+snd_pcm_dmaengine      16384  1 snd_soc_core
+snd_pcm                94208  4 snd_soc_davinci_mcasp,snd_pcm_dmaengine,snd_soc_core,snd_soc_tlv320aic3x
+snd_timer              32768  1 snd_pcm
+snd                    61440  3 snd_timer,snd_soc_core,snd_pcm
+soundcore              16384  1 snd
+evdev                  24576  1
+wkup_m3_ipc            20480  1 pm33xx
+uio_pdrv_genirq        20480  0
+uio                    20480  1 uio_pdrv_genirq
+cpufreq_dt             20480  0
+ip_tables              28672  0
+x_tables               28672  1 ip_tables
+spidev                 24576  0
+debian@ala215-beagle:/mnt/remote/drivers$ cd /sys/class/leds
+debian@ala215-beagle:/sys/class/leds$ ls
+beaglebone:green:usr0  beaglebone:green:usr1  beaglebone:green:usr2  beaglebone:green:usr3  leds:P9.23  mmc0::  mmc1::
+debian@ala215-beagle:/sys/class/leds$ cd leds:P9.23
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ echo morse-code > trigger
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ cat trigger
+none usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock timer oneshot disk-activity disk-read disk-write ide-disk mtd nand-disk heartbeat backlight gpio cpu cpu0 mmc1 activity default-on panic netdev mmc0 4a101000.mdio:00:link 4a101000.mdio:00:100Mbps 4a101000.mdio:00:10Mbps [morse-code]
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ echo 'Hello world.' | sudo tee /dev/morse-code
+Hello world.
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ sudo cat /dev/morse-code
+.... . .-.. .-.. ---  .-- --- .-. .-.. -..
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ cd /mnt/remote/drivers
+debian@ala215-beagle:/mnt/remote/drivers$ sudo rmmod ./morsecode.ko
+debian@ala215-beagle:/mnt/remote/drivers$ lsmod
+Module                  Size  Used by
+rpcsec_gss_krb5        28672  0
+pru_rproc              28672  0
+irq_pruss_intc         20480  0
+snd_soc_simple_card    24576  0
+snd_soc_simple_card_utils    24576  1 snd_soc_simple_card
+pm33xx                 20480  0
+pruss                  20480  1 pru_rproc
+ti_eqep                16384  0
+counter                20480  1 ti_eqep
+snd_soc_tlv320aic3x    53248  1
+snd_soc_davinci_mcasp    32768  2
+snd_soc_ti_udma        16384  1 snd_soc_davinci_mcasp
+snd_soc_ti_edma        16384  1 snd_soc_davinci_mcasp
+snd_soc_ti_sdma        16384  1 snd_soc_davinci_mcasp
+c_can_platform         16384  0
+c_can                  24576  1 c_can_platform
+snd_soc_core          172032  7 snd_soc_davinci_mcasp,snd_soc_simple_card_utils,snd_soc_ti_sdma,snd_soc_ti_edma,snd_soc_tlv320aic3x,snd_soc_ti_udma,snd_soc_simple_card
+can_dev                28672  1 c_can
+snd_pcm_dmaengine      16384  1 snd_soc_core
+snd_pcm                94208  4 snd_soc_davinci_mcasp,snd_pcm_dmaengine,snd_soc_core,snd_soc_tlv320aic3x
+snd_timer              32768  1 snd_pcm
+snd                    61440  3 snd_timer,snd_soc_core,snd_pcm
+soundcore              16384  1 snd
+evdev                  24576  1
+wkup_m3_ipc            20480  1 pm33xx
+uio_pdrv_genirq        20480  0
+uio                    20480  1 uio_pdrv_genirq
+cpufreq_dt             20480  0
+ip_tables              28672  0
+x_tables               28672  1 ip_tables
+spidev                 24576  0
+debian@ala215-beagle:/sys/class/leds/leds:P9.23$ dmesg | tail -100
+<skip>
+[ 7766.862251] <---- morse-code driver exit().
+[ 7780.189572] ----> morse-code driver init(): file /dev/morse-code.
+[ 7833.873445] morse: Start encode morse code 13
+[ 7833.873477] morse: current letter: H
+[ 7835.947068] morse: current letter: E
+[ 7836.779083] morse: current letter: L
+[ 7839.275078] morse: current letter: L
+[ 7841.771080] morse: current letter: O
+[ 7844.683088] morse: current letter:
+[ 7845.515112] morse: current letter: W
+[ 7848.011109] morse: current letter: O
+[ 7850.923140] morse: current letter: R
+[ 7853.003080] morse: current letter: L
+[ 7855.499094] morse: current letter: D
+[ 7857.579145] morse: current letter: .
+[ 7857.579174] morse: encode finished 13
+[ 7860.412833] morse::my_read(), buff size 131072, f_pos 0
+[ 7860.413761] morse::my_read(), buff size 131072, f_pos 0
+[ 7878.101240] <---- morse-code driver exit().

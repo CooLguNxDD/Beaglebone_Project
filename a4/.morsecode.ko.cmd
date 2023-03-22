@@ -1,1 +1,0 @@
-cmd_/media/sf_cmpt433/a4/morsecode.ko := arm-linux-gnueabihf-ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /media/sf_cmpt433/a4/morsecode.ko /media/sf_cmpt433/a4/morsecode.o /media/sf_cmpt433/a4/morsecode.mod.o;  true
